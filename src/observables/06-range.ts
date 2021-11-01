@@ -1,4 +1,4 @@
-import { of, range, asyncScheduler, Observable, observeOn } from 'rxjs'
+import { range, asyncScheduler, observeOn } from 'rxjs'
 
 const src$ = range(-5, 15).pipe(observeOn(asyncScheduler))
 

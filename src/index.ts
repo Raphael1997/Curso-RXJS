@@ -1,16 +1,7 @@
-import { interval, timer } from "rxjs";
+import { range, asyncScheduler, observeOn } from 'rxjs'
 
-const observer = {
-    next: (value) => console.log("next: ", value),
-    error: (error) => console.warn("error: ", error),
-    complete: () => console.log("complete")
-}
+const src$ = range(-5, 15).pipe(observeOn(asyncScheduler))
 
-const interval$ = interval(1000);
-// const timer$ = timer(2000);
-//const timer$ = timer(2000, 3000);
-
-console.log("Incio");
-//interval$.subscribe(observer);
-//timer$.subscribe(observer);
+console.log("Inicio");
+src$.subscribe(console.log);
 console.log("Fin");
